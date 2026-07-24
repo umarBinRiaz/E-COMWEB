@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | NOORCART</title>
+
+    <link rel="icon" type="image/png" href="assets/images/logo-noorcart.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- MAIN HEADER -->
+    <header class="main-header sticky-top bg-white border-bottom shadow-sm">
+        <div class="container py-2">
+            <div class="row align-items-center g-2">
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="index.html" class="text-decoration-none text-dark fw-bold fs-4 d-flex align-items-center">
+                        <img src="assets/images/logo-noorcart.png" alt="NOORCART Logo" style="max-height: 40px;"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                        <span style="display:none;" class="fw-bold text-primary fs-4">NOORCART</span>
+                    </a>
+                </div>
+
+                <div class="col-12 col-md-5 col-lg-6 order-3 order-md-2"></div>
+
+                <div
+                    class="col-8 col-md-4 col-lg-4 order-2 order-md-3 d-flex align-items-center justify-content-end gap-2">
+                    <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme">
+                        <i class="fa-solid fa-moon fs-5"></i>
+                    </button>
+
+                    <button class="btn border-0 position-relative p-2" onclick="toggleCartDrawer(true)"
+                        aria-label="Open Cart">
+                        <i class="fa-solid fa-bag-shopping fs-4 text-dark"></i>
+                        <span class="cart-badge" id="cartBadgeCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg bg-white border-top py-1">
+            <div class="container">
+                <button class="btn btn-primary btn-sm me-2 d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mainNav">
+                    <i class="fa-solid fa-bars me-1"></i> Menu
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="shop.html">Shop All</a></li>
+                        <li class="nav-item"><a class="nav-link" href="category.html?type=perfumes">Perfumes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="category.html?cat=men-unstitched">Men</a></li>
+                        <li class="nav-item"><a class="nav-link" href="category.html?cat=women-unstitched">Women</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="category.html?cat=sports">Sports</a></li>
+                        <li class="nav-item"><a class="nav-link active text-primary" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTACT CONTENT -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm p-4 rounded-4">
+                        <h3 class="fw-bold mb-3">Get In Touch</h3>
+                        <p class="text-muted mb-4">Have questions regarding your order or our collections? Send us a
+                            message directly via WhatsApp!</p>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fa-brands fa-whatsapp fs-3 text-success me-3"></i>
+                            <div>
+                                <strong class="d-block">WhatsApp Assistance</strong>
+                                <a href="https://wa.me/923400085347" class="text-decoration-none text-dark fw-bold">+92
+                                    340 0085347</a>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/923400085347?text=Hello%20NOORCART,%20I%20have%20a%20query."
+                            target="_blank" class="btn btn-success py-2 mt-3 rounded-pill fw-bold">
+                            <i class="fa-brands fa-whatsapp me-2 fs-5"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CART DRAWER & OVERLAY -->
+    <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer(false)"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h5 class="fw-bold mb-0"><i class="fa-solid fa-bag-shopping me-2 text-primary"></i>Your Cart</h5>
+            <button type="button" class="btn-close" onclick="toggleCartDrawer(false)"></button>
+        </div>
+        <div class="cart-body" id="cartItemList"></div>
+        <div class="cart-footer">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="fw-bold text-muted">Subtotal:</span>
+                <span class="fw-bold fs-5 text-success" id="cartTotalDisplay">PKR 0</span>
+            </div>
+            <button onclick="checkoutViaWhatsApp()" class="btn btn-success w-100 py-2 fw-bold rounded-pill">
+                <i class="fa-brands fa-whatsapp me-2 fs-5"></i> Checkout on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/923400085347?text=Hello%20NOORCART,%20I%20have%20a%20query%20about%20your%20products."
+        target="_blank" class="floating-whatsapp" aria-label="Order on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/shop.js"></script>
+    <!-- SCRIPT DEPENDENCIES -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- CUSTOM JS ENGINE -->
+    <script src="assets/js/shop.js"></script>
+
+    <!-- INITIALIZE AOS ANIMATIONS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true
+                });
+            }
+        });
+    </script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeBtn = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('noorcart_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (themeBtn) {
+            themeBtn.innerHTML = savedTheme === 'dark' ? '<i class="fa-solid fa-sun text-warning fs-5"></i>' : '<i class="fa-solid fa-moon text-dark fs-5"></i>';
+            themeBtn.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const next = current === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('noorcart_theme', next);
+                themeBtn.innerHTML = next === 'dark' ? '<i class="fa-solid fa-sun text-warning fs-5"></i>' : '<i class="fa-solid fa-moon text-dark fs-5"></i>';
+            });
+        }
+    });
+</script>
+</body>
+
+</html>
