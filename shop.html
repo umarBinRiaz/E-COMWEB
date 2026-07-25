@@ -8,8 +8,8 @@
     <link rel="icon" type="image/png" href="assets/images/logo-noorcart.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
@@ -17,58 +17,60 @@
 </head>
 <body>
 
-    <!-- TOP ANNOUNCEMENT BAR -->
     <div class="top-bar bg-primary text-white py-1 text-center small fw-semibold">
         <i class="fa-solid fa-truck-fast me-2"></i> Free Express Shipping Nationwide on Orders Over PKR 5,000!
     </div>
 
-    <!-- MAIN HEADER -->
-    <header class="main-header sticky-top bg-white border-bottom shadow-sm">
+    <header class="main-header sticky-top border-bottom shadow-sm">
         <div class="container py-2">
             <div class="row align-items-center g-2">
                 <div class="col-4 col-md-3 col-lg-2">
-                    <a href="index.html" class="text-decoration-none text-dark fw-bold fs-4 d-flex align-items-center">
-                        <img src="assets/images/logo-noorcart.png" alt="NOORCART Logo" style="max-height: 40px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
-                        <span style="display:none;" class="fw-bold text-primary fs-4">NOORCART</span>
+                    <a href="index.html" class="text-decoration-none d-flex align-items-center">
+                        <img src="assets/images/logo-noorcart.png" alt="NOORCART Logo" style="max-height: 40px;"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                        <span style="display:none;" class="brand-mark">NOORCART</span>
                     </a>
                 </div>
 
                 <div class="col-12 col-md-5 col-lg-6 order-3 order-md-2">
-                    <div class="input-group">
+                    <div class="input-group search-form">
                         <input type="text" id="filterSearch" class="form-control rounded-start-pill ps-3" placeholder="Search catalog...">
-                        <button class="btn btn-primary rounded-end-pill px-4" type="button">
+                        <button class="btn btn-search rounded-end-pill px-4" type="button" aria-label="Search">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
                 </div>
 
                 <div class="col-8 col-md-4 col-lg-4 order-2 order-md-3 d-flex align-items-center justify-content-end gap-2">
-                    <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme">
+                    <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle dark and light mode">
                         <i class="fa-solid fa-moon fs-5"></i>
                     </button>
 
-                    <button class="btn border-0 position-relative p-2" onclick="toggleCartDrawer(true)" aria-label="Open Cart">
-                        <i class="fa-solid fa-bag-shopping fs-4 text-dark"></i>
+                    <button class="cart-trigger" onclick="toggleCartDrawer(true)" aria-label="Open cart">
+                        <i class="fa-solid fa-bag-shopping fs-4"></i>
                         <span class="cart-badge" id="cartBadgeCount">0</span>
                     </button>
 
-                    <a href="category.html?type=perfumes" class="d-none d-sm-inline-flex align-items-center text-dark text-decoration-none border rounded-pill px-3 py-1 bg-light shadow-sm">
-                        <img src="assets/images/logo-noorulain.png" alt="Noor-Ul-Ain" style="height: 28px; width: 28px;" class="me-2 rounded-circle" onerror="this.style.display='none';">
-                        <span class="fw-bold text-dark" style="font-size: 0.75rem;">Perfumes</span>
+                    <a href="category.html?type=perfumes"
+                        class="d-none d-sm-inline-flex align-items-center text-decoration-none rounded-pill px-3 py-1 discover-pill">
+                        <img src="assets/images/logo-noorulain.png" alt="Noor-Ul-Ain" style="height: 28px; width: 28px;"
+                            class="me-2 rounded-circle" onerror="this.style.display='none';">
+                        <span class="fw-bold" style="font-size: 0.75rem;">Perfumes</span>
                     </a>
                 </div>
             </div>
         </div>
 
-        <nav class="navbar navbar-expand-lg bg-white border-top py-1">
+        <nav class="navbar navbar-expand-lg main-nav py-1">
             <div class="container">
-                <button class="btn btn-primary btn-sm me-2 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <button class="btn btn-primary btn-sm me-2 d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mainNav" aria-controls="mainNav" aria-label="Toggle navigation">
                     <i class="fa-solid fa-bars me-1"></i> Menu
                 </button>
                 <div class="collapse navbar-collapse" id="mainNav">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link active text-primary" href="shop.html">Shop All</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="shop.html">Shop All</a></li>
                         <li class="nav-item"><a class="nav-link" href="category.html?type=perfumes">Perfumes</a></li>
                         <li class="nav-item"><a class="nav-link" href="category.html?cat=men-unstitched">Men</a></li>
                         <li class="nav-item"><a class="nav-link" href="category.html?cat=women-unstitched">Women</a></li>
@@ -80,18 +82,16 @@
         </nav>
     </header>
 
-    <!-- SHOP SECTION WITH FILTERS -->
     <section class="py-5">
         <div class="container">
             <div class="row g-4">
-                <!-- SIDEBAR FILTERS -->
-                <div class="col-lg-3">
-                    <div class="filter-card p-3 border rounded-3 bg-white shadow-sm">
-                        <h5 class="fw-bold mb-3 border-bottom pb-2">Filter Products</h5>
 
-                        <!-- Categories -->
+                <div class="col-lg-3">
+                    <div class="filter-card">
+                        <h5 class="filter-card-title">Filter Products</h5>
+
                         <div class="mb-4">
-                            <h6 class="fw-bold text-muted mb-2">Categories</h6>
+                            <h6 class="filter-group-label">Categories</h6>
                             <div class="form-check mb-1">
                                 <input class="form-check-input" type="radio" name="categoryFilter" id="catAll" value="all" checked>
                                 <label class="form-check-label" for="catAll">All Categories</label>
@@ -122,21 +122,19 @@
                             </div>
                         </div>
 
-                        <!-- Price Range -->
-                        <div class="mb-3">
-                            <h6 class="fw-bold text-muted mb-2">Max Price</h6>
+                        <div class="mb-1">
+                            <h6 class="filter-group-label">Max Price</h6>
                             <input type="range" class="form-range" id="priceRange" min="1000" max="10000" step="500" value="10000">
-                            <div class="d-flex justify-content-between small text-muted">
-                                <span>PKR 1,000</span>
-                                <span id="priceValue" class="fw-bold text-primary">PKR 10,000</span>
+                            <div class="d-flex justify-content-between small">
+                                <span class="text-muted">PKR 1,000</span>
+                                <span id="priceValue" class="fw-bold" style="color: var(--emerald);">PKR 10,000</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- MAIN PRODUCT GRID -->
                 <div class="col-lg-9">
-                    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+                    <div class="section-heading">
                         <span id="productCount" class="fw-bold text-muted">Showing products</span>
                         <div class="d-flex align-items-center gap-2">
                             <label for="sortSelect" class="text-nowrap small fw-bold">Sort By:</label>
@@ -149,34 +147,65 @@
                         </div>
                     </div>
 
-                    <div class="row g-4" id="productGrid">
-                        <!-- Dynamic Cards Injected via shop.js -->
-                    </div>
+                    <div class="row g-4" id="productGrid"></div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- CART DRAWER & OVERLAY -->
+    <footer class="site-footer pt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <h6>NOORCART</h6>
+                    <p class="small mb-0" style="opacity: 0.8;">Premium fashion, fragrance, and sportswear, delivered nationwide.</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h6>Shop</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="shop.html">Shop All</a></li>
+                        <li><a href="category.html?type=perfumes">Perfumes</a></li>
+                        <li><a href="category.html?cat=sports">Sports</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h6>Support</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="https://wa.me/923400085347" target="_blank">WhatsApp Orders</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h6>Follow</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 NOORCART. All rights reserved.</div>
+    </footer>
+
     <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer(false)"></div>
-    <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Shopping cart" aria-modal="true">
         <div class="cart-header">
-            <h5 class="fw-bold mb-0"><i class="fa-solid fa-bag-shopping me-2 text-primary"></i>Your Cart</h5>
-            <button type="button" class="btn-close" onclick="toggleCartDrawer(false)"></button>
+            <h5 class="fw-bold mb-0"><i class="fa-solid fa-bag-shopping me-2"></i>Your Cart</h5>
+            <button type="button" class="btn-close" onclick="toggleCartDrawer(false)" aria-label="Close cart"></button>
         </div>
         <div class="cart-body" id="cartItemList"></div>
         <div class="cart-footer">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <span class="fw-bold text-muted">Subtotal:</span>
-                <span class="fw-bold fs-5 text-success" id="cartTotalDisplay">PKR 0</span>
+                <span class="fw-bold fs-5 price-mono" id="cartTotalDisplay" style="color: var(--emerald);">PKR 0</span>
             </div>
-            <button onclick="checkoutViaWhatsApp()" class="btn btn-success w-100 py-2 fw-bold rounded-pill">
+            <button onclick="checkoutViaWhatsApp()" class="btn-checkout">
                 <i class="fa-brands fa-whatsapp me-2 fs-5"></i> Checkout on WhatsApp
             </button>
         </div>
     </div>
 
-    <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/923400085347?text=Hello%20NOORCART,%20I%20have%20a%20query%20about%20your%20products." target="_blank" class="floating-whatsapp" aria-label="Order on WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -184,39 +213,30 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/shop.js"></script>
-    <!-- SCRIPT DEPENDENCIES -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- CUSTOM JS ENGINE -->
-    <script src="assets/js/shop.js"></script>
-
-    <!-- INITIALIZE AOS ANIMATIONS -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 800,
-                    once: true
-                });
-            }
-        });
-    </script>
-</body>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 800, once: true });
+            }
+
             const themeBtn = document.getElementById('themeToggle');
             const savedTheme = localStorage.getItem('noorcart_theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            if (themeBtn) {
-                themeBtn.innerHTML = savedTheme === 'dark' ? '<i class="fa-solid fa-sun text-warning fs-5"></i>' : '<i class="fa-solid fa-moon text-dark fs-5"></i>';
-                themeBtn.addEventListener('click', () => {
-                    const current = document.documentElement.getAttribute('data-theme');
-                    const next = current === 'dark' ? 'light' : 'dark';
-                    document.documentElement.setAttribute('data-theme', next);
-                    localStorage.setItem('noorcart_theme', next);
-                    themeBtn.innerHTML = next === 'dark' ? '<i class="fa-solid fa-sun text-warning fs-5"></i>' : '<i class="fa-solid fa-moon text-dark fs-5"></i>';
-                });
+            setThemeIcon(savedTheme === 'dark');
+
+            themeBtn?.addEventListener('click', () => {
+                const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('noorcart_theme', next);
+                setThemeIcon(next === 'dark');
+            });
+
+            function setThemeIcon(isDark) {
+                if (!themeBtn) return;
+                themeBtn.innerHTML = isDark
+                    ? '<i class="fa-solid fa-sun text-warning fs-5"></i>'
+                    : '<i class="fa-solid fa-moon fs-5"></i>';
             }
         });
     </script>

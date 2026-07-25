@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOORCART | Premium Multi-Product Store</title>
+
+    <link rel="icon" type="image/png" href="assets/images/logo-noorcart.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar bg-primary text-white py-1 text-center small fw-semibold">
+        <i class="fa-solid fa-truck-fast me-2"></i> Free Express Shipping Nationwide on Orders Over PKR 5,000!
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="main-header sticky-top bg-white border-bottom shadow-sm">
+        <div class="container py-2">
+            <div class="row align-items-center g-2">
+
+                <!-- Logo -->
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="index.html" class="text-decoration-none text-dark fw-bold fs-4 d-flex align-items-center">
+                        <img src="assets/images/logo-noorcart.png" alt="NOORCART Logo" style="max-height: 40px;"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                        <span style="display:none;" class="fw-bold text-primary fs-4">NOORCART</span>
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="col-12 col-md-5 col-lg-6 order-3 order-md-2">
+                    <div class="input-group">
+                        <input type="text" id="filterSearch" class="form-control rounded-start-pill ps-3"
+                            placeholder="Search for Perfumes, Clothes, Shoes, Sports...">
+                        <button class="btn btn-primary rounded-end-pill px-4" type="button">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Action Controls (Theme Toggle, Cart, Discover) -->
+                <div
+                    class="col-8 col-md-4 col-lg-4 order-2 order-md-3 d-flex align-items-center justify-content-end gap-2">
+
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Dark/Light Mode">
+                        <i class="fa-solid fa-moon fs-5"></i>
+                    </button>
+
+                    <!-- Cart Icon -->
+                    <button class="btn border-0 position-relative p-2" onclick="toggleCartDrawer(true)"
+                        aria-label="Open Cart">
+                        <i class="fa-solid fa-bag-shopping fs-4 text-dark"></i>
+                        <span class="cart-badge" id="cartBadgeCount">0</span>
+                    </button>
+
+                    <!-- Discover Perfumes Pill -->
+                    <a href="category.html?type=perfumes"
+                        class="d-none d-sm-inline-flex align-items-center text-dark text-decoration-none border rounded-pill px-3 py-1 bg-light shadow-sm">
+                        <img src="assets/images/logo-noorulain.png" alt="Noor-Ul-Ain" style="height: 28px; width: 28px;"
+                            class="me-2 rounded-circle" onerror="this.style.display='none';">
+                        <div class="text-start">
+                            <small class="d-block text-muted"
+                                style="font-size: 0.6rem; line-height: 1;">DISCOVER</small>
+                            <span class="fw-bold text-dark" style="font-size: 0.75rem;">Perfumes</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- NAVIGATION MENU -->
+        <nav class="navbar navbar-expand-lg bg-white border-top py-1">
+            <div class="container">
+                <button class="btn btn-primary btn-sm me-2 d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mainNav">
+                    <i class="fa-solid fa-bars me-1"></i> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold">
+                        <li class="nav-item"><a class="nav-link active text-primary" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="shop.html">Shop All</a></li>
+                        <li class="nav-item"><a class="nav-link" href="category.html?type=perfumes">Perfumes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="category.html?cat=men-unstitched">Men</a></li>
+                        <li class="nav-item"><a class="nav-link" href="category.html?cat=women-unstitched">Women</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="category.html?cat=sports">Sports</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO BANNER SLIDER -->
+    <section class="py-3">
+        <div class="container">
+            <div id="heroCarousel" class="carousel slide rounded-4 overflow-hidden shadow-sm" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active"
+                        style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop') center/cover; height: 380px;">
+                        <div class="d-flex h-100 align-items-center justify-content-start p-5 text-white">
+                            <div class="max-w-500">
+                                <span class="badge bg-danger mb-2 px-3 py-2">EXCLUSIVE COLLECTION</span>
+                                <h1 class="fw-extrabold display-5">Elevate Your Everyday Style</h1>
+                                <p class="lead">Discover high-end luxury fashion, sports gear, and unstitched
+                                    collections crafted for distinction.</p>
+                                <a href="shop.html" class="btn btn-warning rounded-pill px-4 py-2 fw-bold">Explore Shop
+                                    <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS GRID SECTION -->
+    <section class="py-4">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="fw-bold mb-0">Featured Products</h3>
+                <span id="productCount" class="text-muted small">Showing products</span>
+            </div>
+
+            <!-- Dynamic Product Grid loaded by shop.js -->
+            <div class="row g-4" id="productGrid">
+                <!-- Items injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CART DRAWER OVERLAY -->
+    <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer(false)"></div>
+
+    <!-- CART DRAWER -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h5 class="fw-bold mb-0"><i class="fa-solid fa-bag-shopping me-2 text-primary"></i>Your Cart</h5>
+            <button type="button" class="btn-close" onclick="toggleCartDrawer(false)"></button>
+        </div>
+
+        <div class="cart-body" id="cartItemList">
+            <!-- Dynamic Cart Content -->
+        </div>
+
+        <div class="cart-footer">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="fw-bold text-muted">Subtotal:</span>
+                <span class="fw-bold fs-5 text-success" id="cartTotalDisplay">PKR 0</span>
+            </div>
+            <button onclick="checkoutViaWhatsApp()" class="btn btn-success w-100 py-2 fw-bold rounded-pill">
+                <i class="fa-brands fa-whatsapp me-2 fs-5"></i> Checkout on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON (UPDATED NUMBER) -->
+    <a href="https://wa.me/923400085347?text=Hello%20NOORCART,%20I%20have%20a%20query%20about%20your%20products."
+        target="_blank" class="floating-whatsapp" aria-label="Order on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPT DEPENDENCIES -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- CUSTOM JS ENGINE -->
+    <script src="assets/js/shop.js"></script>
+    <!-- SCRIPT DEPENDENCIES -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- CUSTOM JS ENGINE -->
+    <script src="assets/js/shop.js"></script>
+
+    <!-- INITIALIZE AOS ANIMATIONS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true
+                });
+            }
+        });
+    </script>
+</body>
+<!-- Theme Toggle Initialization -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeBtn = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('noorcart_theme') || 'light';
+
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme === 'dark');
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const next = current === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('noorcart_theme', next);
+                updateThemeIcon(next === 'dark');
+            });
+        }
+
+        function updateThemeIcon(isDark) {
+            if (!themeBtn) return;
+            themeBtn.innerHTML = isDark ?
+                '<i class="fa-solid fa-sun text-warning fs-5"></i>' :
+                '<i class="fa-solid fa-moon text-dark fs-5"></i>';
+        }
+    });
+</script>
+</body>
+
+</html>

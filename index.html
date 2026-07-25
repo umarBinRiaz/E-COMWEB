@@ -9,10 +9,8 @@
     <link rel="icon" type="image/png" href="assets/images/logo-noorcart.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- CSS Dependencies -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
@@ -21,61 +19,50 @@
 
 <body>
 
-    <!-- TOP ANNOUNCEMENT BAR -->
     <div class="top-bar bg-primary text-white py-1 text-center small fw-semibold">
         <i class="fa-solid fa-truck-fast me-2"></i> Free Express Shipping Nationwide on Orders Over PKR 5,000!
     </div>
 
-    <!-- MAIN HEADER -->
-    <header class="main-header sticky-top bg-white border-bottom shadow-sm">
+    <header class="main-header sticky-top border-bottom shadow-sm">
         <div class="container py-2">
             <div class="row align-items-center g-2">
 
-                <!-- Logo -->
                 <div class="col-4 col-md-3 col-lg-2">
-                    <a href="index.html" class="text-decoration-none text-dark fw-bold fs-4 d-flex align-items-center">
+                    <a href="index.html" class="text-decoration-none d-flex align-items-center">
                         <img src="assets/images/logo-noorcart.png" alt="NOORCART Logo" style="max-height: 40px;"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
-                        <span style="display:none;" class="fw-bold text-primary fs-4">NOORCART</span>
+                        <span style="display:none;" class="brand-mark">NOORCART</span>
                     </a>
                 </div>
 
-                <!-- Search Bar -->
                 <div class="col-12 col-md-5 col-lg-6 order-3 order-md-2">
-                    <div class="input-group">
+                    <div class="input-group search-form">
                         <input type="text" id="filterSearch" class="form-control rounded-start-pill ps-3"
                             placeholder="Search for Perfumes, Clothes, Shoes, Sports...">
-                        <button class="btn btn-primary rounded-end-pill px-4" type="button">
+                        <button class="btn btn-search rounded-end-pill px-4" type="button" aria-label="Search">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- Action Controls (Theme Toggle, Cart, Discover) -->
-                <div
-                    class="col-8 col-md-4 col-lg-4 order-2 order-md-3 d-flex align-items-center justify-content-end gap-2">
+                <div class="col-8 col-md-4 col-lg-4 order-2 order-md-3 d-flex align-items-center justify-content-end gap-2">
 
-                    <!-- Theme Toggle -->
-                    <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Dark/Light Mode">
+                    <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle dark and light mode">
                         <i class="fa-solid fa-moon fs-5"></i>
                     </button>
 
-                    <!-- Cart Icon -->
-                    <button class="btn border-0 position-relative p-2" onclick="toggleCartDrawer(true)"
-                        aria-label="Open Cart">
-                        <i class="fa-solid fa-bag-shopping fs-4 text-dark"></i>
+                    <button class="cart-trigger" onclick="toggleCartDrawer(true)" aria-label="Open cart">
+                        <i class="fa-solid fa-bag-shopping fs-4"></i>
                         <span class="cart-badge" id="cartBadgeCount">0</span>
                     </button>
 
-                    <!-- Discover Perfumes Pill -->
                     <a href="category.html?type=perfumes"
-                        class="d-none d-sm-inline-flex align-items-center text-dark text-decoration-none border rounded-pill px-3 py-1 bg-light shadow-sm">
+                        class="d-none d-sm-inline-flex align-items-center text-decoration-none rounded-pill px-3 py-1 discover-pill">
                         <img src="assets/images/logo-noorulain.png" alt="Noor-Ul-Ain" style="height: 28px; width: 28px;"
                             class="me-2 rounded-circle" onerror="this.style.display='none';">
                         <div class="text-start">
-                            <small class="d-block text-muted"
-                                style="font-size: 0.6rem; line-height: 1;">DISCOVER</small>
-                            <span class="fw-bold text-dark" style="font-size: 0.75rem;">Perfumes</span>
+                            <small class="d-block" style="font-size: 0.6rem; line-height: 1; opacity: 0.65;">DISCOVER</small>
+                            <span class="fw-bold" style="font-size: 0.75rem;">Perfumes</span>
                         </div>
                     </a>
 
@@ -83,22 +70,20 @@
             </div>
         </div>
 
-        <!-- NAVIGATION MENU -->
-        <nav class="navbar navbar-expand-lg bg-white border-top py-1">
+        <nav class="navbar navbar-expand-lg main-nav py-1">
             <div class="container">
                 <button class="btn btn-primary btn-sm me-2 d-lg-none" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#mainNav">
+                    data-bs-target="#mainNav" aria-controls="mainNav" aria-label="Toggle navigation">
                     <i class="fa-solid fa-bars me-1"></i> Menu
                 </button>
 
                 <div class="collapse navbar-collapse" id="mainNav">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold">
-                        <li class="nav-item"><a class="nav-link active text-primary" href="index.html">Home</a></li>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="shop.html">Shop All</a></li>
                         <li class="nav-item"><a class="nav-link" href="category.html?type=perfumes">Perfumes</a></li>
                         <li class="nav-item"><a class="nav-link" href="category.html?cat=men-unstitched">Men</a></li>
-                        <li class="nav-item"><a class="nav-link" href="category.html?cat=women-unstitched">Women</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="category.html?cat=women-unstitched">Women</a></li>
                         <li class="nav-item"><a class="nav-link" href="category.html?cat=sports">Sports</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     </ul>
@@ -107,20 +92,19 @@
         </nav>
     </header>
 
-    <!-- HERO BANNER SLIDER -->
     <section class="py-3">
         <div class="container">
-            <div id="heroCarousel" class="carousel slide rounded-4 overflow-hidden shadow-sm" data-bs-ride="carousel">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active"
-                        style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop') center/cover; height: 380px;">
-                        <div class="d-flex h-100 align-items-center justify-content-start p-5 text-white">
-                            <div class="max-w-500">
-                                <span class="badge bg-danger mb-2 px-3 py-2">EXCLUSIVE COLLECTION</span>
-                                <h1 class="fw-extrabold display-5">Elevate Your Everyday Style</h1>
-                                <p class="lead">Discover high-end luxury fashion, sports gear, and unstitched
+                    <div class="carousel-item active">
+                        <div class="hero-slide"
+                            style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop');">
+                            <div class="hero-content">
+                                <span class="hero-eyebrow">Exclusive Collection</span>
+                                <h1 class="hero-title">Elevate Your Everyday Style</h1>
+                                <p class="hero-lead">Discover high-end luxury fashion, sports gear, and unstitched
                                     collections crafted for distinction.</p>
-                                <a href="shop.html" class="btn btn-warning rounded-pill px-4 py-2 fw-bold">Explore Shop
+                                <a href="shop.html" class="btn btn-hero">Explore Shop
                                     <i class="fa-solid fa-arrow-right ms-1"></i></a>
                             </div>
                         </div>
@@ -130,104 +114,110 @@
         </div>
     </section>
 
-    <!-- PRODUCTS GRID SECTION -->
     <section class="py-4">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3 class="fw-bold mb-0">Featured Products</h3>
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">Curated for you</span>
+                    <h2>Featured Products</h2>
+                </div>
                 <span id="productCount" class="text-muted small">Showing products</span>
             </div>
 
-            <!-- Dynamic Product Grid loaded by shop.js -->
-            <div class="row g-4" id="productGrid">
-                <!-- Items injected here -->
-            </div>
+            <div class="row g-4" id="productGrid"></div>
         </div>
     </section>
 
-    <!-- CART DRAWER OVERLAY -->
+    <footer class="site-footer pt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <h6>NOORCART</h6>
+                    <p class="small mb-0" style="opacity: 0.8;">Premium fashion, fragrance, and sportswear, delivered nationwide.</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h6>Shop</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="shop.html">Shop All</a></li>
+                        <li><a href="category.html?type=perfumes">Perfumes</a></li>
+                        <li><a href="category.html?cat=sports">Sports</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h6>Support</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="https://wa.me/923400085347" target="_blank">WhatsApp Orders</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h6>Follow</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 NOORCART. All rights reserved.</div>
+    </footer>
+
     <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer(false)"></div>
 
-    <!-- CART DRAWER -->
-    <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Shopping cart" aria-modal="true">
         <div class="cart-header">
-            <h5 class="fw-bold mb-0"><i class="fa-solid fa-bag-shopping me-2 text-primary"></i>Your Cart</h5>
-            <button type="button" class="btn-close" onclick="toggleCartDrawer(false)"></button>
+            <h5 class="fw-bold mb-0"><i class="fa-solid fa-bag-shopping me-2"></i>Your Cart</h5>
+            <button type="button" class="btn-close" onclick="toggleCartDrawer(false)" aria-label="Close cart"></button>
         </div>
 
-        <div class="cart-body" id="cartItemList">
-            <!-- Dynamic Cart Content -->
-        </div>
+        <div class="cart-body" id="cartItemList"></div>
 
         <div class="cart-footer">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <span class="fw-bold text-muted">Subtotal:</span>
-                <span class="fw-bold fs-5 text-success" id="cartTotalDisplay">PKR 0</span>
+                <span class="fw-bold fs-5 price-mono" id="cartTotalDisplay" style="color: var(--emerald);">PKR 0</span>
             </div>
-            <button onclick="checkoutViaWhatsApp()" class="btn btn-success w-100 py-2 fw-bold rounded-pill">
+            <button onclick="checkoutViaWhatsApp()" class="btn-checkout">
                 <i class="fa-brands fa-whatsapp me-2 fs-5"></i> Checkout on WhatsApp
             </button>
         </div>
     </div>
 
-    <!-- FLOATING WHATSAPP BUTTON (UPDATED NUMBER) -->
     <a href="https://wa.me/923400085347?text=Hello%20NOORCART,%20I%20have%20a%20query%20about%20your%20products."
         target="_blank" class="floating-whatsapp" aria-label="Order on WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- SCRIPT DEPENDENCIES -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- CUSTOM JS ENGINE -->
-    <script src="assets/js/shop.js"></script>
-    <!-- SCRIPT DEPENDENCIES -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- CUSTOM JS ENGINE -->
     <script src="assets/js/shop.js"></script>
 
-    <!-- INITIALIZE AOS ANIMATIONS -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', () => {
             if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 800,
-                    once: true
-                });
+                AOS.init({ duration: 800, once: true });
+            }
+
+            const themeBtn = document.getElementById('themeToggle');
+            const savedTheme = localStorage.getItem('noorcart_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            setThemeIcon(savedTheme === 'dark');
+
+            themeBtn?.addEventListener('click', () => {
+                const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('noorcart_theme', next);
+                setThemeIcon(next === 'dark');
+            });
+
+            function setThemeIcon(isDark) {
+                if (!themeBtn) return;
+                themeBtn.innerHTML = isDark
+                    ? '<i class="fa-solid fa-sun text-warning fs-5"></i>'
+                    : '<i class="fa-solid fa-moon fs-5"></i>';
             }
         });
     </script>
-</body>
-<!-- Theme Toggle Initialization -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const themeBtn = document.getElementById('themeToggle');
-        const savedTheme = localStorage.getItem('noorcart_theme') || 'light';
-
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme === 'dark');
-
-        if (themeBtn) {
-            themeBtn.addEventListener('click', () => {
-                const current = document.documentElement.getAttribute('data-theme');
-                const next = current === 'dark' ? 'light' : 'dark';
-                document.documentElement.setAttribute('data-theme', next);
-                localStorage.setItem('noorcart_theme', next);
-                updateThemeIcon(next === 'dark');
-            });
-        }
-
-        function updateThemeIcon(isDark) {
-            if (!themeBtn) return;
-            themeBtn.innerHTML = isDark ?
-                '<i class="fa-solid fa-sun text-warning fs-5"></i>' :
-                '<i class="fa-solid fa-moon text-dark fs-5"></i>';
-        }
-    });
-</script>
 </body>
 
 </html>
